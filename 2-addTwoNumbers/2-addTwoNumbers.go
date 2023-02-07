@@ -5,9 +5,22 @@ type ListNode struct {
 	Next	*ListNode
 }
 
+func makeList(input []int) *ListNode {
+
+	head := &ListNode{input[0], nil}
+	tail := head
+
+	for _, digit := range input[1:] {		
+		node := &ListNode{digit, nil}
+		tail.Next = node
+		tail = node
+	}
+
+	return head
+}
+
 func addTwoNumbers(l1 *ListNode, l2 *ListNode) *ListNode {
-	var head *ListNode = nil
-	var temp *ListNode = head
+	var res []int
 
 	mem := 0
 
@@ -16,22 +29,18 @@ func addTwoNumbers(l1 *ListNode, l2 *ListNode) *ListNode {
 		
 		if l1 != nil {
 			sum = sum + l1.Val
+			l1 = l1.Next
 		}
 
 		if l2 != nil {
 			sum = sum + l2.Val
-		} else {
-			
+			l2 = l2.Next
 		}
 
 		sum = (sum + mem) % 10
 		mem = (sum + mem) / 10
 
-		temp.Val = sum
-		temp = temp.Next
-
-		l1 = l1.Next
-		l2 = l2.Next
+		res = append(res, sum)
 	}
-	return head
+	return makeList(res)
 }

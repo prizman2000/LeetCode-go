@@ -5,19 +5,6 @@ import (
 	"testing"
 )
 
-func makeList(input []int) *ListNode {
-
-	var head *ListNode = nil
-	var next *ListNode = head
-
-	for _, digit := range input {
-		next = &ListNode{digit, nil}
-		next = next.Next
-	}
-
-	return head
-}
-
 func Test_addTwoNumbers(t *testing.T) {
 	type args struct {
 		l1 *ListNode

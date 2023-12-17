@@ -16,24 +16,24 @@ func Constructor(foods []string, cuisines []string, ratings []int) FoodRatings {
 }
 
 
-func (this *FoodRatings) ChangeRating(food string, newRating int)  {
-    for i, item := range this.Foods {
+func (fr *FoodRatings) ChangeRating(food string, newRating int)  {
+    for i, item := range fr.Foods {
         if food == item {
-            this.Ratings[i] = newRating
+            fr.Ratings[i] = newRating
             return
         }
     }
 }
 
 
-func (this *FoodRatings) HighestRated(cuisine string) string {
+func (fr *FoodRatings) HighestRated(cuisine string) string {
     var highest, highestIndex int
 
-    for i := 0; i < len(this.Foods); i++ {
-        if this.Cuisines[i] == cuisine && this.Ratings[i] > highest {
+    for i := 0; i < len(fr.Foods); i++ {
+        if fr.Cuisines[i] == cuisine && fr.Ratings[i] > highest {
             highestIndex = i
-            highest = this.Ratings[i]
+            highest = fr.Ratings[i]
         }
     }
-    return this.Foods[highestIndex]
+    return fr.Foods[highestIndex]
 }

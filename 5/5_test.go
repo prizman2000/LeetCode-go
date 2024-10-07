@@ -1,8 +1,8 @@
 package longestPalindromicSubstr
 
 import (
-	"testing"
 	"reflect"
+	"testing"
 )
 
 func Test_longestPalindrome(t *testing.T) {
@@ -13,7 +13,7 @@ func Test_longestPalindrome(t *testing.T) {
 		name string
 		args args
 		want string
-	} {
+	}{
 		{name: "Example 1", args: args{s: "babad"}, want: "bab"},
 		{name: "Example 2", args: args{s: "cbbd"}, want: "bb"},
 	}
@@ -22,6 +22,6 @@ func Test_longestPalindrome(t *testing.T) {
 			if got := longestPalindrome(tt.args.s); !reflect.DeepEqual(got, tt.want) {
 				t.Errorf("longestPalindrome() = %v, want %v", got, tt.want)
 			}
-		}) 
+		})
 	}
 }

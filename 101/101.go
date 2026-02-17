@@ -1,0 +1,21 @@
+package isSymmetric
+
+type TreeNode struct {
+	Val   int
+	Left  *TreeNode
+	Right *TreeNode
+}
+
+func isSymmetric(root *TreeNode) bool {
+	return isSemetricNodes(root, root)
+}
+
+func isSemetricNodes(node1, node2 *TreeNode) bool {
+	if node1 == nil && node2 == nil {
+		return true
+	}
+	if node1 == nil || node2 == nil {
+		return false
+	}
+	return node1.Val == node2.Val && isSemetricNodes(node1.Left, node2.Right) && isSemetricNodes(node1.Right, node2.Left)
+}
